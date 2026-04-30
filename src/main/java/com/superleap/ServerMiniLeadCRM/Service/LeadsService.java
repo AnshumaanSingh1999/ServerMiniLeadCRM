@@ -20,5 +20,9 @@ public class LeadsService {
         return lr.findAll();
     }
 
+    public List<Leads> CreateBulkLeads(List<Leads> BulkLeads){
+        return lr.saveAll(BulkLeads);
+    }
+
 
 }

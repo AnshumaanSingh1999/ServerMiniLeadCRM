@@ -35,7 +35,14 @@ public class Leads {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private Status status=Status.NEW;
+    private Status status;
+
+    @PrePersist
+    public void setDefaultStatus() {
+        if (status == null) {
+            status = Status.NEW;
+        }
+    }
 
     @Column(name = "source")
     private String source;

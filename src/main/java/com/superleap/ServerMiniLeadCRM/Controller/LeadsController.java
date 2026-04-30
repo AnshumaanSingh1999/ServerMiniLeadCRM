@@ -18,13 +18,18 @@ public class LeadsController {
 
 
     @PostMapping("/leads")
-    public Leads CreateLead(@RequestBody Leads lead){
-        return ls.CreateLead(lead);
+    public Leads CreateLead(@RequestBody Leads OneLead){
+        return ls.CreateLead(OneLead);
     }
 
     @GetMapping("/leads")
     public List<Leads> ListLeads() {
         return ls.ListLeads();
+    }
+
+    @PostMapping("/leads/bulk")
+    public List<Leads> CreateBulkLeads(@RequestBody List<Leads> ManyLeads){
+        return ls.CreateBulkLeads(ManyLeads);
     }
 
 }
