@@ -11,8 +11,7 @@
    - No Need to setup the Database as project will create DB itself if it is non existent.
    - Run the project.
    - Go to MySQL Workbench and use the database generated as "Database_Mini_Lead_CRM" by executing querry "use Database_Mini_Lead_CRM;".
-   - To poulate the table in the database run the SQL script: "insert into leads(id,name,email,phone,source,status,created_at,updated_at) values
-     (uuid(),"Anshumaan Singh","anshumaanborntolead@gmail.com","7379105000","Website","NEW",localtimestamp(),localtimestamp()),(uuid(),"Anshumaan","anshumaanborntolead@outlook.com","9559916161","Social Media","NEW",localtimestamp(),localtimestamp());".
+   - To poulate the table in the database run the SQL script: "insert into leads(id,name,email,phone,source,status,created_at,updated_at) values (uuid(),"Anshumaan Singh","anshumaanborntolead@gmail.com","7379105000","Website","NEW",localtimestamp(),localtimestamp()),(uuid(),"Anshumaan","anshumaanborntolead@outlook.com","9559916161","Social Media","NEW",localtimestamp(),localtimestamp());".
 
 3. API Documentation:
    - Post Request on http://localhost:8080/leads with request payload(Body) leads with allowed fields will populate the leads table in db.
