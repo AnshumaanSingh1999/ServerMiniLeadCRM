@@ -45,5 +45,9 @@ public class LeadsController {
         return ls.UpdateLeadByID(id,OneLead);
     }
 
+    @PatchMapping("/leads/{id}/status")
+    public Leads TransitionLead(@PathVariable String id,@RequestBody Leads NewStatus){
+        return ls.TransitionLead(id,NewStatus);
+    }
 
 }

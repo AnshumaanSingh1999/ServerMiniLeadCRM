@@ -44,4 +44,10 @@ public class LeadsService {
         ExistingLead.setSource(UpdateLead.getSource());
         return lr.save(ExistingLead);
     }
+
+    public Leads TransitionLead(String id,Leads NewStatus){
+        Leads ExistingLead =lr.findById(id).orElse(null);
+        ExistingLead.setStatus(NewStatus.getStatus());
+        return lr.save(ExistingLead);
+    }
 }
