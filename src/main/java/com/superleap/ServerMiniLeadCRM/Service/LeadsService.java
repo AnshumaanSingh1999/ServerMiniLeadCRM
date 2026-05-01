@@ -14,7 +14,6 @@ public class LeadsService {
 
     @Autowired
     private LeadsRepository lr;
-    private Leads getlead;
 
     public Leads CreateLead(Leads OneLead){
         return lr.save(OneLead);
@@ -23,7 +22,6 @@ public class LeadsService {
     public List<Leads> ListLeads(){
         Status status=Status.NEW;
         return lr.findAllByStatus(status);
-        //return lr.findAll();
     }
 
 
@@ -52,7 +50,15 @@ public class LeadsService {
 
     public Leads TransitionLead(String id,Leads NewStatus){
         Leads ExistingLead =lr.findById(id).orElse(null);
-        ExistingLead.setStatus(NewStatus.getStatus());
+        if(ExistingLead.getStatus().equals(Status.NEW) && (NewStatus.getStatus().equals(Status.CONTACTED) || NewStatus.getStatus().equals(Status.LOST))){
+            ExistingLead.setStatus(NewStatus.getStatus());
+        }
+        else if (ExistingLead.getStatus().equals(Status.CONTACTED) && (NewStatus.getStatus().equals(Status.QUALIFIED) || NewStatus.getStatus().equals(Status.LOST))) {
+            ExistingLead.setStatus(NewStatus.getStatus());
+        }
+        else if (ExistingLead.getStatus().equals(Status.QUALIFIED) && (NewStatus.getStatus().equals(Status.CONVERTED) || NewStatus.getStatus().equals(Status.LOST))) {
+            ExistingLead.setStatus(NewStatus.getStatus());
+        }
         return lr.save(ExistingLead);
     }
 }
