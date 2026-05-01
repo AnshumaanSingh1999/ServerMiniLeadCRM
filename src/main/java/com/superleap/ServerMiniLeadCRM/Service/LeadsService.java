@@ -1,5 +1,6 @@
 package com.superleap.ServerMiniLeadCRM.Service;
 
+import com.superleap.ServerMiniLeadCRM.Enums.Status;
 import com.superleap.ServerMiniLeadCRM.Model.Leads;
 import com.superleap.ServerMiniLeadCRM.Repository.LeadsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,12 @@ public class LeadsService {
     }
 
     public List<Leads> ListLeads(){
-        return lr.findAll();
+        Status status=Status.NEW;
+        return lr.findAllByStatus(status);
+        //return lr.findAll();
     }
+
+
 
     public List<Leads> CreateBulkLeads(List<Leads> BulkLeads){
         return lr.saveAll(BulkLeads);
