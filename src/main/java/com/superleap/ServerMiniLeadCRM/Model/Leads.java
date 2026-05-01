@@ -4,11 +4,7 @@ package com.superleap.ServerMiniLeadCRM.Model;
 import com.superleap.ServerMiniLeadCRM.Enums.Status;
 import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
-import org.apache.logging.log4j.message.Message;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.NotFound;
-
 import java.time.LocalDateTime;
 
 
